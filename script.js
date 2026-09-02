@@ -67,6 +67,9 @@ const revealElements = document.querySelectorAll(
     ".skill-card, " +
     ".projects-header, " +
     ".project-card, " +
+    ".education-number, " +
+    ".education-header, " +
+    ".timeline-card, " +
     ".contact-number, " +
     ".contact-content"
 );
@@ -174,8 +177,19 @@ window.addEventListener("scroll", () => {
 
     sections.forEach((section) => {
 
+        /*
+         * Navbar height is 80px on desktop
+         * and 70px on mobile.
+         *
+         * Use a dynamic offset instead of
+         * the old fixed 180px value.
+         */
+
+        const navbarHeight =
+            window.innerWidth <= 768 ? 70 : 80;
+
         const sectionTop =
-            section.offsetTop - 180;
+            section.offsetTop - navbarHeight - 10;
 
         const sectionHeight =
             section.offsetHeight;
@@ -356,7 +370,9 @@ menuButton.addEventListener("click", () => {
 });
 
 
-/* CLOSE MOBILE MENU AFTER CLICK */
+/* ==============================
+   CLOSE MOBILE MENU AFTER CLICK
+============================== */
 
 navLinks.forEach((link) => {
 
