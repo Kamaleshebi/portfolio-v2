@@ -10,6 +10,7 @@
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:80px;
 }
 
 body{
@@ -17,6 +18,11 @@ body{
     background:#050505;
     color:white;
     overflow-x:hidden;
+}
+
+/* FIX FIXED NAVBAR OVERLAP */
+section{
+    scroll-margin-top:80px;
 }
 
 
@@ -770,6 +776,171 @@ body{
 
 
 /* ==============================
+   EDUCATION & EXPERIENCE
+============================== */
+
+.education{
+    min-height:100vh;
+    padding:130px 10%;
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(100,70,255,.12),
+            transparent 30%
+        ),
+        #050505;
+}
+
+.education-header{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:50px;
+    margin-bottom:80px;
+}
+
+.education-number{
+    font-size:8rem;
+    font-weight:bold;
+    line-height:1;
+    opacity:.05;
+}
+
+.education-header h2{
+    font-size:clamp(2.5rem,6vw,5rem);
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.education-header h2 span{
+    display:block;
+
+    background:linear-gradient(
+        90deg,
+        #9f7cff,
+        #54d8ff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.education-header p{
+    max-width:600px;
+    line-height:1.8;
+    opacity:.55;
+}
+
+
+/* TIMELINE */
+
+.timeline{
+    max-width:900px;
+    margin-left:180px;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:5px;
+    top:10px;
+    bottom:10px;
+    width:1px;
+
+    background:linear-gradient(
+        #9f7cff,
+        #54d8ff,
+        transparent
+    );
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:55px;
+    margin-bottom:30px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:0;
+    top:30px;
+
+    width:11px;
+    height:11px;
+
+    border-radius:50%;
+    background:#65d7ff;
+
+    box-shadow:
+        0 0 12px #65d7ff,
+        0 0 30px rgba(101,215,255,.6);
+}
+
+.timeline-card{
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:22px;
+
+    background:rgba(255,255,255,.025);
+    backdrop-filter:blur(15px);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.timeline-card:hover{
+    transform:translateX(10px);
+
+    border-color:rgba(120,100,255,.45);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4),
+        0 0 30px rgba(100,70,255,.12);
+}
+
+.timeline-year{
+    display:block;
+
+    font-size:10px;
+    letter-spacing:3px;
+
+    color:#8bdfff;
+
+    margin-bottom:15px;
+}
+
+.timeline-card h3{
+    font-size:1.6rem;
+    margin-bottom:8px;
+}
+
+.timeline-card h4{
+    font-size:.9rem;
+    font-weight:normal;
+    opacity:.55;
+    margin-bottom:20px;
+}
+
+.timeline-card p{
+    line-height:1.7;
+    opacity:.55;
+}
+
+.timeline-card strong{
+    color:#9f7cff;
+    font-size:1.2rem;
+    margin-left:8px;
+}
+
+
+/* ==============================
    CONTACT
 ============================== */
 
@@ -1122,7 +1293,49 @@ body{
     }
 }
 
+
+/* ==============================
+   TABLET / MOBILE
+============================== */
+
 @media(max-width:768px){
+
+    html{
+        scroll-padding-top:70px;
+    }
+
+    section{
+        scroll-margin-top:70px;
+    }
+
+    .education{
+        padding:110px 7%;
+    }
+
+    .education-header{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .education-number{
+        font-size:5rem;
+    }
+
+    .timeline{
+        margin-left:0;
+    }
+
+    .timeline-item{
+        padding-left:35px;
+    }
+
+    .timeline-card{
+        padding:24px;
+    }
+
+    .timeline-card h3{
+        font-size:1.35rem;
+    }
 
     .navbar{
         height:70px;
